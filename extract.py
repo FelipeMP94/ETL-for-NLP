@@ -16,7 +16,7 @@ def extract_links():
 
     # Obter a altura inicial da página
     last_height = driver.execute_script("return document.body.scrollHeight")
-    '''
+    
     while True:
         # Rola até o final da página
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -29,16 +29,13 @@ def extract_links():
         if new_height == last_height:
             break
         last_height = new_height
-    '''
+    
     # Aqui você pode adicionar o código para extrair os dados necessários da página
     elems = driver.find_elements(By.XPATH,'//a[@class="gh-card-link"]')
     cont = 0
     links = [] 
     for elem in elems:
         links.append(elem.get_attribute("href"))
-        cont+=1
-        if cont == 15:
-            break
 
     # Fecha o navegador quando terminar
     arq = open('Dados/links.txt','a')
@@ -46,5 +43,14 @@ def extract_links():
         arq.write('\n'+link)
     driver.quit()
 
+
+def prepare_links():
+    arq = open('Dados\links.txt')
+    links = []
+    for line in arq.readlines():
+        line = line.replace('\n','')
+        links.append(line)
+    links.pop(0)
+    return links
 
 
