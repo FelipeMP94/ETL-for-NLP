@@ -38,7 +38,7 @@ def extract_links():
         links.append(elem.get_attribute("href"))
 
     # Fecha o navegador quando terminar
-    arq = open('Dados/links.txt','a')
+    arq = open('Dados/links.txt','w')
     for link in links:
         arq.write('\n'+link)
     driver.quit()

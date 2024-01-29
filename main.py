@@ -8,8 +8,8 @@ if __name__ == '__main__':
    links = prepare_links()
    obj = create_objects(links)
    print(f'Quantidade de tribunas enviadas: {len(obj)}')
-   print(obje[0])
-   print(obje[475])
+   print(obj[0])
+   print(obj[475])
    save_jason(obj)
    
  
