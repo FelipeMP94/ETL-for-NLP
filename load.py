@@ -2,5 +2,6 @@ import json
 
 
 def save_jason(dados):
-    with open('Dados/dados.json','w') as arquivo_json:
-        json.dump(dados,arquivo_json,ensure_ascii=False)
+    json_str = json.dumps(dados,ensure_ascii=False)
+    with open("Dados/dados.json", "w") as arquivo:
+        arquivo.write(json_str)

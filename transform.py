@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+from unidecode import unidecode
 
 def _get_html(link):
     while True:
@@ -20,10 +20,11 @@ def create_objects(links):
         text = {'autor':0,
             'content': ''}
         for string in tag.stripped_strings:
+            cleaned_string = unidecode(string)
             if count == 1:
-                text['autor'] = string
+                text['autor'] = cleaned_string
             elif count > 3:
-                text['content'] =text['content']+ string +'/n'
+                text['content'] =text['content']+ cleaned_string +'/n'
             count+=1
         texts_in_jason.append(text)
     return texts_in_jason

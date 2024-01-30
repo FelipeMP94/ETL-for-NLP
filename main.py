@@ -4,12 +4,9 @@ from load import save_jason
 
 
 if __name__ == '__main__':
-   extract_links()
    links = prepare_links()
    obj = create_objects(links)
    print(f'Quantidade de tribunas enviadas: {len(obj)}')
-   print(obj[0])
-   print(obj[475])
    save_jason(obj)
    
  

@@ -16,7 +16,7 @@ def extract_links():
 
     # Obter a altura inicial da página
     last_height = driver.execute_script("return document.body.scrollHeight")
-    
+    count = 0 
     while True:
         # Rola até o final da página
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -26,8 +26,15 @@ def extract_links():
 
         # Calcula a nova altura da página e compara com a última altura da página
         new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
-            break
+    
+        if (new_height == last_height):
+            count+=1
+            if count ==3:
+                print('Fim')
+                break
+        else:
+            count = 0
+
         last_height = new_height
     
     # Aqui você pode adicionar o código para extrair os dados necessários da página
