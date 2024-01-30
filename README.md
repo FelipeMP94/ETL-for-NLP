@@ -1,20 +1,32 @@
-## `extract.py` - Extração de Links com Selenium
+## `extract.py`
 
-### Descrição
-O script `extract.py` é utilizado para extrair links de páginas da web utilizando o Selenium, uma ferramenta de automação de navegador. Este script é particularmente útil para extrair links de páginas que utilizam rolagem infinita, um padrão comum em muitos sites modernos.
+### Visão Geral
+`extract.py` é um script Python projetado para web scraping utilizando o Selenium WebDriver. Este script é encapsulado em uma estrutura de classe, fornecendo uma abordagem mais organizada e reutilizável para automatizar a interação com páginas da web e a extração de dados.
 
-### Dependências
-- Selenium: Instale com `pip install selenium`
-- WebDriver para o navegador escolhido (por exemplo, ChromeDriver para Google Chrome)
+### Funcionalidades
+- **Estrutura Baseada em Classe**: Organizado como uma classe chamada `Extractor`, melhorando a reusabilidade e a manutenibilidade.
+- **Inicialização do WebDriver**: Configura o Selenium WebDriver para Chrome dentro da classe.
+- **Navegação de Página**: Abre uma página web especificada (URL configurada na classe `Extractor`) para extração de dados.
+- **Manipulação de Conteúdo Dinâmico**: Capaz de lidar com páginas de rolagem infinita, garantindo que todo o conteúdo dinâmico seja carregado.
+- **Extração de Dados**: Métodos para extrair dados específicos da página web (descrição detalhada necessária baseada na análise completa do script).
+
+### Requisitos
+- **Selenium**: Uma biblioteca Python para automatização de navegadores web.
+- **Chrome WebDriver**: Necessário para o Selenium interagir com o Google Chrome.
+
+### Configuração e Instalação
+1. **Instalar o Selenium**: Execute `pip install selenium`.
+2. **Chrome WebDriver**: Baixe e configure o Chrome WebDriver, garantindo que ele esteja disponível no PATH do sistema.
 
 ### Uso
-1. **Inicialização do WebDriver**: O script inicia uma instância do WebDriver do navegador escolhido (neste caso, Google Chrome).
-2. **Navegação até a Página Desejada**: O script navega até uma URL específica, definida no módulo `urls/urls.py` sob o nome `infinitscroll`.
-3. **Extração de Links com Rolagem Infinita**: Utiliza um método de rolagem para carregar conteúdo dinamicamente e extrai links da página.
+Para usar a classe `Extractor`:
+1. Certifique-se de que a URL e os parâmetros estejam corretamente configurados na classe.
+2. Crie uma instância do `Extractor`.
+3. Chame os métodos apropriados para navegar e extrair dados.
 
-### Função Principal
-- `extract_links()`: Esta função inicializa o WebDriver, navega até a página especificada, executa uma rolagem infinita para carregar o conteúdo dinâmico da página, e então extrai e retorna os links encontrados.
+Exemplo:
+```python
+from extract import Extractor
 
-### Considerações
-- O tempo de espera entre as rolagens pode ser ajustado conforme a necessidade para garantir que a página seja carregada adequadamente antes da próxima rolagem.
-- Certifique-se de ter o WebDriver correto para o navegador que está utilizando.
+extractor = Extractor()
+extractor.extract_links_class()
